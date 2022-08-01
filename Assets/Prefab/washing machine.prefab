@@ -97,8 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6680a718c310b4efc97b53330654e36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialList: []
   isSelected: 0
+  isRight: 1
+  isUp: 0
+  FunctionName: 
 --- !u!64 &1235105719
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 6954291570587357356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.61, y: 0, z: 0}
-  m_LocalScale: {x: 2.9357, y: 2.9357, z: 2.9357}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7185915180191529806}

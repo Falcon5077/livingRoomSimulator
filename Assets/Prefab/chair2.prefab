@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8195697888216537687}
   - component: {fileID: 4654837381293407939}
   - component: {fileID: 449832472}
+  - component: {fileID: 6939991393853554860}
   - component: {fileID: 7123184059715109511}
   m_Layer: 0
   m_Name: default
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2872724733528174630}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.18, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,6 +100,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: c1593a0d32f976549aa96828e0694d09, type: 3}
+--- !u!114 &6939991393853554860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872724733528174630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de74237f3d674feba87285b64311ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPosition: {x: 20, y: 6, z: 2}
+  mRotationEuler: {x: 0, y: -90, z: 0}
+  camRotationEuler: {x: 0, y: 0, z: 0}
+  Player: {fileID: 0}
 --- !u!114 &7123184059715109511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,8 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6680a718c310b4efc97b53330654e36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialList: []
   isSelected: 0
+  isRight: 1
+  isUp: 0
+  FunctionName: SetPlayerPosition
 --- !u!1 &6507767487924242687
 GameObject:
   m_ObjectHideFlags: 0

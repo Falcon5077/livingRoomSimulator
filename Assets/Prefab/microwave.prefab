@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6680a718c310b4efc97b53330654e36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialList: []
   isSelected: 0
+  isRight: 0
+  isUp: 0
+  FunctionName: 
 --- !u!1 &5937922167705340385
 GameObject:
   m_ObjectHideFlags: 0

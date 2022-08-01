@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class CameraScope : MonoBehaviour
 {
-    private Vector3 ScreenCenter;
-    public GameObject hitObject;
-    private void Start() {
-        ScreenCenter = new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2);
-    }
-
-    private void FixedUpdate() {
-        // Ray ray = Camera.main.ScreenPointToRay(ScreenCenter);
-        // Debug.DrawRay(transform.position,transform.forward * 10f, Color.red);
+    GameObject hitObject;
+    public GameObject UIButton;
+    private void Update() {
+        
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            PlayObject();
+        }
+        
         RaycastHit hitInfo;
 
         if(Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo,30f))
         {
             RemoveOutLine();
             hitObject = hitInfo.transform.gameObject;
-            if(hitObject.GetComponent<SelectObject>() != null && hitObject.GetComponent<SelectObject>().isSelected == false)
+            if(hitObject.GetComponent<SelectObject>() != null && hitObject.GetComponent<SelectObject>().isSelected == false){
                 hitObject.GetComponent<SelectObject>().RayEnter();
+                UIButton.SetActive(true);
+            }
         }
         else
         {
@@ -35,7 +37,18 @@ public class CameraScope : MonoBehaviour
             {
                 hitObject.GetComponent<SelectObject>().RayExit();
                 hitObject = null;
+                UIButton.SetActive(false);
             }
+        }
+    }
+
+    void PlayObject()
+    {
+        if(hitObject != null)
+        {
+            Debug.Log(hitObject.name);
+            if(hitObject.GetComponent<SelectObject>() != null)
+                hitObject.GetComponent<SelectObject>().RunningFunction();
         }
     }
 }

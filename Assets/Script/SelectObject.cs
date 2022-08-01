@@ -6,11 +6,16 @@ public class SelectObject : MonoBehaviour
 {
     Material outline;   
     Renderer renderers;
-    public List<Material> materialList = new List<Material>();
+    List<Material> materialList = new List<Material>();
+    Quaternion mRota;
     public bool isSelected = false;
+    public bool isRight = false;
+    public bool isUp = false;
+    public string FunctionName = "";
     void Start()
     {
         outline = new Material(Shader.Find("Draw/OutlineShader"));
+        mRota = transform.rotation;
     }
 
     public void RayEnter()
@@ -37,5 +42,39 @@ public class SelectObject : MonoBehaviour
         renderer.materials = materialList.ToArray();  
 
         isSelected = false;
+    }
+
+    public void RunningFunction()
+    {
+        if(FunctionName == "")
+        {
+            Shake();
+        }
+        else
+        {
+            SendMessage(FunctionName);
+        }
+    }
+    public void Shake()
+    {
+        StartCoroutine("ShakeObject");
+    }
+
+    IEnumerator ShakeObject()
+    {
+        int way = -1;
+        for(int i = 0; i < 10; i++)
+        {
+            if(isUp)
+                transform.Rotate(Vector3.up,0.5f * way * (i+1),Space.Self);
+            else if(isRight)
+                transform.Rotate(Vector3.right,0.5f * way * (i+1),Space.Self);
+            else
+                transform.Rotate(Vector3.forward,0.5f * way * (i+1),Space.Self);
+                
+            yield return new WaitForSeconds(0.05f);
+            way *= -1;
+            transform.rotation = mRota;
+        }
     }
 }
