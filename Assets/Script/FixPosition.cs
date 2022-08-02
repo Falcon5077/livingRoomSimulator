@@ -19,7 +19,6 @@ public class FixPosition : MonoBehaviour
         Player.transform.position = mPosition;
         Player.transform.rotation = Quaternion.Euler(mRotationEuler);
         //Camera.main.transform.localRotation = Quaternion.LookRotation(Vector3.zero);
-        
         //Player.GetComponent<CameraMove>().StopCam();
         Player.GetComponent<CameraMove>().isMove = true;
     }

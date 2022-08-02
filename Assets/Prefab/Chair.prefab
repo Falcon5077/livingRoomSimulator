@@ -268,7 +268,38 @@ MonoBehaviour:
   isSelected: 0
   isRight: 0
   isUp: 0
-  FunctionName: 
+  FunctionName: Tornado
+--- !u!114 &1473964433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949284234008899556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de74237f3d674feba87285b64311ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPosition: {x: 0, y: 8, z: 0}
+  mRotationEuler: {x: 0, y: -90, z: 0}
+  camRotationEuler: {x: 0, y: 0, z: 0}
+  Player: {fileID: 0}
+--- !u!114 &1473964434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3949284234008899556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26282ab7cf2804c6eb5b6a905c2009b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  rotateTime: 5
+  targetAngle: 720
 --- !u!4 &4614138320173501831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3bf5854be30a72543abab900cca527be, type: 3}

@@ -66,11 +66,11 @@ public class SelectObject : MonoBehaviour
         for(int i = 0; i < 10; i++)
         {
             if(isUp)
-                transform.Rotate(Vector3.up,0.5f * way * (i+1),Space.Self);
+                transform.Rotate(Vector3.up,0.3f * way * (i+1),Space.Self);
             else if(isRight)
-                transform.Rotate(Vector3.right,0.5f * way * (i+1),Space.Self);
+                transform.Rotate(Vector3.right,0.3f * way * (i+1),Space.Self);
             else
-                transform.Rotate(Vector3.forward,0.5f * way * (i+1),Space.Self);
+                transform.Rotate(Vector3.forward,0.3f * way * (i+1),Space.Self);
                 
             yield return new WaitForSeconds(0.05f);
             way *= -1;
