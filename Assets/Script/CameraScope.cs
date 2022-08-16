@@ -13,6 +13,11 @@ public class CameraScope : MonoBehaviour
             PlayObject();
         }
         
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            PickUp();
+        }
+        
         RaycastHit hitInfo;
 
         if(Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo,30f))
@@ -27,6 +32,13 @@ public class CameraScope : MonoBehaviour
         else
         {
             RemoveOutLine();
+        }
+    }
+
+    void PickUp()
+    {
+        if(hitObject != null){
+
         }
     }
 
