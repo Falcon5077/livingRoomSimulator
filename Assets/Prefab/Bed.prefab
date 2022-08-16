@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 2410234107608336723}
   - component: {fileID: 643932464}
   - component: {fileID: 46038066808699131}
+  - component: {fileID: 5316452058057013426}
+  - component: {fileID: 902725332669201673}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -147,3 +149,32 @@ MonoBehaviour:
   isRight: 0
   isUp: 0
   FunctionName: 
+--- !u!114 &5316452058057013426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059342443298260918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2bbe097eea6d944bf1dc585618e4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+--- !u!114 &902725332669201673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059342443298260918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de74237f3d674feba87285b64311ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mPosition: {x: 0, y: 0, z: 0}
+  mRotationEuler: {x: 0, y: 0, z: 0}
+  camRotationEuler: {x: 0, y: 0, z: 0}
+  Player: {fileID: 0}
