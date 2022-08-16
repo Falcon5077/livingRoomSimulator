@@ -42,6 +42,7 @@ public class CameraMove : MonoBehaviour
         {
             Input.ResetInputAxes();
             xRotate = 0;
+            yRotate2 = -90;
 
             isMove = false;
         }    
