@@ -9,8 +9,8 @@ public class SelectObject : MonoBehaviour
     List<Material> materialList = new List<Material>();
     Quaternion mRota;
     public bool isSelected = false;
-    public bool isRight = false;
-    public bool isUp = false;
+    bool isRight = false;
+    bool isUp = false;
     public string FunctionName = "";
     void Start()
     {
