@@ -18,6 +18,11 @@ public class SelectObject : MonoBehaviour
         mRota = transform.rotation;
     }
 
+    public void SetMyRota()
+    {
+        mRota = transform.rotation;
+    }
+
     public void RayEnter()
     {
         renderers = this.GetComponent<Renderer>();
