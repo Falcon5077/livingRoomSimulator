@@ -20,7 +20,8 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KeyboardMove();
+        if(transform.parent == null)
+            KeyboardMove();
         MouseRotation();
     }
 

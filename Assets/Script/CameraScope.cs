@@ -48,10 +48,14 @@ public class CameraScope : MonoBehaviour
 
     void PlayObject()
     {
-        if(hitObject.GetComponent<AudioSource>() != null)
+        if(hitObject!= null)
         {
-            hitObject.GetComponent<AudioSource>().Play();
+            if (hitObject.GetComponent<AudioSource>() != null)
+            {
+                hitObject.GetComponent<AudioSource>().Play();
+            }
         }
+        
         
         if(hitObject != null)
         {
