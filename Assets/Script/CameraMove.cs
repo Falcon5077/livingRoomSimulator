@@ -9,18 +9,56 @@ public class CameraMove : MonoBehaviour
     private float xRotate = 0.0f;
     public GameObject Cam;
     Rigidbody rb;
-    float speed = 10f;
     public bool isMove = false;
+
+    private float vertical;
+    private float horizontal;
+
+    Vector3 moveDirection;
+    public Transform orientation;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
+    /*
+    void Temp()
+    {
+        float h = Input.GetAxis("Mouse X") * turnSpeed;
+        float v = Input.GetAxis("Vertical") * moveSpeed;
+
+        Vector3 move = transform.forward * v;
+        Vector3 rotate = new Vector3(0, h, 0);
+
+        rb.velocity = move;
+        rb.rotation *= Quaternion.Euler(rotate);
+    }
+    */
+
     // Update is called once per frame
+    private void MovePlayer()
+    {
+        // calculate movement direction
+        moveDirection = orientation.forward * vertical + orientation.right * horizontal;
+
+        rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
+    }
+    private void MyInput()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+    }
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
     void Update()
     {
-        KeyboardMove();
+        MyInput();
+        //KeyboardMove();
         MouseRotation();
     }
 
@@ -53,13 +91,22 @@ public class CameraMove : MonoBehaviour
     void KeyboardMove()
     {
         // WASD 키 또는 화살표키의 이동량을 측정
-        Vector3 dir = new Vector3(
+        /*Vector3 velocity = new Vector3(
             Input.GetAxis("Horizontal"), 
             0,
             Input.GetAxis("Vertical")
-        );
+        );*/
 
-        transform.Translate(dir * moveSpeed * Time.deltaTime);        
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+
+        Vector3 velocity = (transform.forward * vertical) * moveSpeed;
+        velocity.y = rb.velocity.y;
+        rb.velocity = velocity;
+
+        //velocity *= moveSpeed;
+        //rb.velocity = velocity;
+        //transform.Translate(velocity * moveSpeed * Time.deltaTime);        
     }
 
 }

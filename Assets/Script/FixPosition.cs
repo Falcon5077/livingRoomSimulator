@@ -16,11 +16,18 @@ public class FixPosition : MonoBehaviour
 
     public void SetPlayerPosition()
     {
-        Player.transform.position = mPosition;
+        if (Player.transform.parent == null)
+            Player.transform.parent = this.transform;
+
+        Player.transform.localPosition = mPosition;
         Player.transform.rotation = Quaternion.Euler(mRotationEuler);
         //Camera.main.transform.localRotation = Quaternion.LookRotation(Vector3.zero);
         //Player.GetComponent<CameraMove>().StopCam();
         Player.GetComponent<CameraMove>().isMove = true;
+
+
+        if (Player.transform.parent == this.transform)
+            Player.transform.parent = null;
     }
 
     // Update is called once per frame
