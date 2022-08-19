@@ -6,7 +6,6 @@ public class FixPosition : MonoBehaviour
 {
     public Vector3 mPosition;
     public Vector3 mRotationEuler;
-    public Vector3 camRotationEuler;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -21,9 +20,7 @@ public class FixPosition : MonoBehaviour
 
         Player.transform.localPosition = mPosition;
         Player.transform.rotation = Quaternion.Euler(mRotationEuler);
-        //Camera.main.transform.localRotation = Quaternion.LookRotation(Vector3.zero);
-        //Player.GetComponent<CameraMove>().StopCam();
-        Player.GetComponent<CameraMove>().isMove = true;
+        Player.GetComponent<PlayerMove>().isMove = true;
 
         if (Player.transform.parent == this.transform)
             Player.transform.parent = null;

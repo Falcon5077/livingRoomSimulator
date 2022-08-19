@@ -46,7 +46,7 @@ public class MoveDoor : MonoBehaviour
      public void ShowToiletCamera()
     {
         GetComponent<SelectObject>().enabled = false;
-        mainCamera.transform.parent.GetComponent<CameraMove>().enabled = false;
+        mainCamera.transform.parent.GetComponent<PlayerMove>().enabled = false;
         canvas.SetActive(false);
         mainCamera.enabled = false;
         toiletCamera.enabled = true;
@@ -55,7 +55,7 @@ public class MoveDoor : MonoBehaviour
     public void ShowMainCamera()
     {
         GetComponent<SelectObject>().enabled = true;
-        mainCamera.transform.parent.GetComponent<CameraMove>().enabled = true;
+        mainCamera.transform.parent.GetComponent<PlayerMove>().enabled = true;
         canvas.SetActive(true);
         mainCamera.enabled = true;
         toiletCamera.enabled = false;
@@ -63,7 +63,6 @@ public class MoveDoor : MonoBehaviour
 
     IEnumerator WaitForIt()
     {
-        
         yield return new WaitForSeconds(0.5f);
         ShowToiletCamera();
         yield return new WaitForSeconds(4f);

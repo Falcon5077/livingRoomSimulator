@@ -4,25 +4,37 @@ using UnityEngine;
 
 public class CameraScope : MonoBehaviour
 {
-    GameObject hitObject;
+    private GameObject hitObject;
     public GameObject UIButton;
-    private void Update() {
-
-        if(Input.GetKeyDown(KeyCode.F))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
         {
             PlayObject();
         }
-        
-        RaycastHit hitInfo;
 
-        if(Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo,30f))
+        DrawOutLine();
+
+    }
+    private void DrawOutLine()
+    {
+        RaycastHit hitInfo;
+        if (Physics.Raycast(this.transform.position, this.transform.forward, out hitInfo, 30f))
         {
             RemoveOutLine();
             hitObject = hitInfo.transform.gameObject;
-            if(hitObject.GetComponent<SelectObject>() != null && hitObject.GetComponent<SelectObject>().isSelected == false){
-                if(hitObject.GetComponent<MoveObject>() != null && hitObject.GetComponent<MoveObject>().isGrab != true)
+
+            if (hitObject != null && hitObject.GetComponent<MoveObject>() != null)
+            {
+                if (hitObject.GetComponent<MoveObject>().isGrab == true)
+                    return;
+            }
+
+            if (hitObject.GetComponent<SelectObject>() != null && hitObject.GetComponent<SelectObject>().isSelected == false)
+            {
+                if (hitObject.GetComponent<MoveObject>() != null && hitObject.GetComponent<MoveObject>().isGrab != true)
                     hitObject.GetComponent<SelectObject>().RayEnter();
-                else if(hitObject.GetComponent<MoveObject>() == null)
+                else if (hitObject.GetComponent<MoveObject>() == null)
                     hitObject.GetComponent<SelectObject>().RayEnter();
 
                 UIButton.SetActive(true);
@@ -33,7 +45,6 @@ public class CameraScope : MonoBehaviour
             RemoveOutLine();
         }
     }
-
     void RemoveOutLine()
     {
         if(hitObject != null){
@@ -45,23 +56,25 @@ public class CameraScope : MonoBehaviour
             }
         }
     }
-
     void PlayObject()
     {
         if(hitObject!= null)
         {
+            if (hitObject.GetComponent<MoveObject>() != null)
+            {
+                if (hitObject.GetComponent<MoveObject>().isGrab == true)
+                    return;
+            }
+
             if (hitObject.GetComponent<AudioSource>() != null)
             {
                 hitObject.GetComponent<AudioSource>().Play();
             }
-        }
-        
-        
-        if(hitObject != null)
-        {
-            Debug.Log(hitObject.name);
-            if(hitObject.GetComponent<SelectObject>() != null)
+
+            if (hitObject.GetComponent<SelectObject>() != null)
+            {
                 hitObject.GetComponent<SelectObject>().RunningFunction();
+            }
         }
     }
 }

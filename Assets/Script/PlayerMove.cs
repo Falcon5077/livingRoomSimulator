@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
-    public float turnSpeed = 2.0f;
-    private float xRotate = 0.0f;
-    public GameObject Cam;
-    Rigidbody rb;
-    float speed = 10f;
+    [HideInInspector]
     public bool isMove = false;
+
+    public float moveSpeed = 10.0f;
+    public float turnSpeed = 2.5f;
+
+    private float xRotate = 0.0f;
+    private GameObject Cam;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        Cam = Camera.main.gameObject;
     }
 
     // Update is called once per frame
@@ -22,6 +24,10 @@ public class CameraMove : MonoBehaviour
     {
         if(transform.parent == null)
             KeyboardMove();
+
+        if (Input.GetMouseButton(1))
+            return;
+
         MouseRotation();
     }
 

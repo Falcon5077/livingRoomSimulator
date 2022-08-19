@@ -260,10 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opaqueMat: {fileID: 2100000, guid: 7728eb21953c342d1ae278111bb8a4ac, type: 2}
   transparentMat: {fileID: 2100000, guid: ffcf31eb309ac4ae698c9bd372979cb6, type: 2}
-  isAlpha: 0
-  offset: {x: 5, y: 0, z: 0}
-  Player: {fileID: 0}
-  turnSpeed: 2
+  offset: 10
+  TurnSpeed: 100
   isGrab: 0
   canDrop: 1
 --- !u!54 &220274554
@@ -426,6 +424,8 @@ MonoBehaviour:
   Center: {x: -25, y: 0, z: 0}
   smoot: 2
   Target: {fileID: 0}
+  isRota: 1
+  rotaSpeed: 10
 --- !u!1 &618849705
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,10 +959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opaqueMat: {fileID: 0}
   transparentMat: {fileID: 0}
-  isAlpha: 0
-  offset: {x: 10, y: 0, z: 0}
-  Player: {fileID: 0}
-  turnSpeed: 2
+  offset: 10
+  TurnSpeed: 100
   isGrab: 0
   canDrop: 1
 --- !u!54 &956439384
@@ -2064,10 +2062,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75959ce7f587465fb2f55a86685ae68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMove: 0
   moveSpeed: 10
   turnSpeed: 2.5
-  Cam: {fileID: 963194225}
-  isMove: 0
 --- !u!4 &1777158006
 Transform:
   m_ObjectHideFlags: 0

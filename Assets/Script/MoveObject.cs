@@ -6,13 +6,16 @@ public class MoveObject : MonoBehaviour
 {
     public Material opaqueMat;
     public Material transparentMat;
+    public float offset = 10f;
+
+    public float TurnSpeed = 100f;
+
     private Renderer rend;
-    public bool isAlpha = false;
-    public Vector3 offset = new Vector3(10,0,0);
-    public GameObject Player;
-    public float turnSpeed = 2.0f;
+    private bool isAlpha = false;
+    private GameObject Player;
     public bool isGrab = false;
     public bool canDrop = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,12 @@ public class MoveObject : MonoBehaviour
         }
 
         if(isGrab){
+            GetComponent<SelectObject>().SetMyRota();
+            if (Input.GetMouseButton(1))
+            {
+                transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+            }
+
             if(canDrop)
                 GetComponent<Renderer>().material.color = new Color32(0, 150, 0, 150);
             else
@@ -71,14 +80,13 @@ public class MoveObject : MonoBehaviour
     {
         isAlpha = !isAlpha;
         UpdateMaterial(isAlpha);
-        GetComponent<SelectObject>().SetMyRota();
     }
     
     void UpdateMaterial(bool transparent) {
         if (transparent) {
             rend.material = transparentMat;
             transform.parent.rotation = Player.transform.rotation;
-                        //transform.parent.position = new Vector3(Player.transform.position.x,transform.parent.position.y,Player.transform.position.z) + offset;
+            transform.parent.position = new Vector3(Player.transform.position.x, transform.parent.position.y, Player.transform.position.z) + Player.transform.forward * offset;
         }
         else {
             rend.material = opaqueMat;

@@ -9,17 +9,6 @@ public class MagicCleaner : MonoBehaviour
     public GameObject Target;
     public bool isRota = true;
     public float rotaSpeed = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void FlyCleaner()
     {
@@ -36,8 +25,6 @@ public class MagicCleaner : MonoBehaviour
             transform.Rotate(Vector3.up * rotaSpeed, Space.World);
             yield return null;
         }
-        
-
     }
     IEnumerator Magic()
     {

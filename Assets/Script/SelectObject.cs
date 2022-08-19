@@ -8,9 +8,10 @@ public class SelectObject : MonoBehaviour
     Renderer renderers;
     List<Material> materialList = new List<Material>();
     Quaternion mRota;
-    public bool isSelected = false;
     bool isRight = false;
     bool isUp = false;
+
+    public bool isSelected = false;
     public string FunctionName = "";
     void Start()
     {
@@ -79,6 +80,7 @@ public class SelectObject : MonoBehaviour
                 
             yield return new WaitForSeconds(0.05f);
             way *= -1;
+
             transform.rotation = mRota;
         }
     }
