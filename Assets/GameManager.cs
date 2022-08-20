@@ -15,6 +15,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.parent != null)
+        {
+            GetComponent<CapsuleCollider>().isTrigger = true;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            GetComponent<CapsuleCollider>().isTrigger = false;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        }
     }
 }

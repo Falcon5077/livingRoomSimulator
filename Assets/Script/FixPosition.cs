@@ -20,7 +20,6 @@ public class FixPosition : MonoBehaviour
 
         Player.transform.localPosition = mPosition;
         Player.transform.rotation = Quaternion.Euler(mRotationEuler);
-        Player.GetComponent<PlayerMove>().isMove = true;
 
         if (Player.transform.parent == this.transform)
             Player.transform.parent = null;

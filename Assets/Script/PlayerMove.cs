@@ -13,14 +13,19 @@ public class PlayerMove : MonoBehaviour
     private float xRotate = 0.0f;
     private GameObject Cam;
 
+    private float vertical;
+    private float horizontal;
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
         Cam = Camera.main.gameObject;
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(transform.parent == null)
             KeyboardMove();
@@ -59,6 +64,7 @@ public class PlayerMove : MonoBehaviour
 
     void KeyboardMove()
     {
+        
         // WASD 키 또는 화살표키의 이동량을 측정
         Vector3 dir = new Vector3(
             Input.GetAxis("Horizontal"), 
@@ -66,7 +72,18 @@ public class PlayerMove : MonoBehaviour
             Input.GetAxis("Vertical")
         );
 
-        transform.Translate(dir * moveSpeed * Time.deltaTime);        
+        transform.Translate(dir * moveSpeed * Time.deltaTime);     
+        
+
+        /*
+        vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+
+        Vector3 velocity = (transform.forward * vertical) * moveSpeed;
+        velocity.y = rb.velocity.y;
+        rb.velocity = velocity;
+        */
+
     }
 
 }
