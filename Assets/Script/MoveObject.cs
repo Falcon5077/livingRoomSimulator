@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class MoveObject : MonoBehaviour
 {
-    public Material opaqueMat;
-    public Material transparentMat;
-    public float offset = 10f;
-
-    public float TurnSpeed = 100f;
-
     private Renderer rend;
     private bool isAlpha = false;
     private GameObject Player;
@@ -24,12 +18,10 @@ public class MoveObject : MonoBehaviour
 
         Player = GameObject.FindWithTag("Player");
     }
-
  //the layers the ray can hit
     void Awake() {
         rend = GetComponent<Renderer>();
     }
-
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Q))
         {
@@ -37,67 +29,53 @@ public class MoveObject : MonoBehaviour
                 if(isGrab == true)
                 {
                     isGrab = false;
+                    GameManager.something_Grab = false;
                     GrabObject();
                     GetComponent<MeshCollider>().isTrigger = false;
+                    transform.parent.parent = null;
                 }
                 else if(GetComponent<SelectObject>().isSelected == true)
                 {
                     isGrab = true;
+                    GameManager.something_Grab = true;
                     GrabObject();
                     GetComponent<MeshCollider>().isTrigger = true;
+                    transform.parent.parent = Player.transform;
                 }
             }
         }
 
-        if(isAlpha)
-        {
-            transform.parent.parent = Player.transform;
-        }
-        else
-        {
-            transform.parent.parent = null;
-        }
-
         if(isGrab){
             GetComponent<SelectObject>().SetMyRota();
-            if (Input.GetMouseButton(1))
-            {
-                transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
-            }
-
-            if(canDrop)
-                GetComponent<Renderer>().material.color = new Color32(0, 150, 0, 150);
-            else
-                GetComponent<Renderer>().material.color = new Color32(150, 0, 0, 150);
+            GetComponent<ChangeMaterial>().SetColorObject(canDrop);
+            RotateObject_Mouse_X();
         }
         else
-            GetComponent<Renderer>().material.color = new Color(1,1,1,1);
-
+            rend.material.color = new Color(1,1,1,1);
+    }
+    private void RotateObject_Mouse_X()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            transform.parent.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0));
+        }
 
     }
-
-    public void GrabObject()
+    private void GrabObject()
     {
         isAlpha = !isAlpha;
-        UpdateMaterial(isAlpha);
+        GetComponent<ChangeMaterial>().UpdateMaterial(isAlpha);
     }
-    
-    void UpdateMaterial(bool transparent) {
-        if (transparent) {
-            rend.material = transparentMat;
-            transform.parent.rotation = Player.transform.rotation;
-            transform.parent.position = new Vector3(Player.transform.position.x, transform.parent.position.y, Player.transform.position.z) + Player.transform.forward * offset;
-        }
-        else {
-            rend.material = opaqueMat;
-        }
-    }
-
     private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player" || (this.tag != "Untagged" && other.tag == this.tag))
+            return;
         canDrop = false;
-    }
 
-    private void OnTriggerStay(Collider other) {
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" || (this.tag != "Untagged" && other.tag == this.tag))
+            return;
         canDrop = false;
     }
     private void OnTriggerExit(Collider other) {

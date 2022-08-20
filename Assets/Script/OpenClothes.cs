@@ -33,10 +33,10 @@ public class OpenClothes : MonoBehaviour
         status = doorState.isOpening;
 
         float startRotation = LeftDoor.transform.eulerAngles.z;
-        float endRotation = startRotation + 150;
+        float endRotation = startRotation - 150;
 
         float startRotation2 = RightDoor.transform.eulerAngles.z;
-        float endRotation2 = startRotation2 - 150;
+        float endRotation2 = startRotation2 + 150;
 
         float t = 0.0f;
 
@@ -61,10 +61,10 @@ public class OpenClothes : MonoBehaviour
         status = doorState.isClosing;
         
         float startRotation = LeftDoor.transform.eulerAngles.z;
-        float endRotation = startRotation - 150;
+        float endRotation = startRotation + 150;
 
         float startRotation2 = RightDoor.transform.eulerAngles.z;
-        float endRotation2 = startRotation2 + 150;
+        float endRotation2 = startRotation2 - 150;
 
         float t = 0.0f;
 

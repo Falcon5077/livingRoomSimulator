@@ -24,10 +24,9 @@ public class CameraScope : MonoBehaviour
             RemoveOutLine();
             hitObject = hitInfo.transform.gameObject;
 
-            if (hitObject != null && hitObject.GetComponent<MoveObject>() != null)
+            if (hitObject != null && GameManager.something_Grab == true)
             {
-                if (hitObject.GetComponent<MoveObject>().isGrab == true)
-                    return;
+                return;
             }
 
             if (hitObject.GetComponent<SelectObject>() != null && hitObject.GetComponent<SelectObject>().isSelected == false)
@@ -60,11 +59,8 @@ public class CameraScope : MonoBehaviour
     {
         if(hitObject!= null)
         {
-            if (hitObject.GetComponent<MoveObject>() != null)
-            {
-                if (hitObject.GetComponent<MoveObject>().isGrab == true)
-                    return;
-            }
+            if (GameManager.something_Grab == true)
+                return;
 
             if (hitObject.GetComponent<AudioSource>() != null)
             {
