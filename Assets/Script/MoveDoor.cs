@@ -33,7 +33,6 @@ public class MoveDoor : MonoBehaviour
             Quaternion targetRotation2 = Quaternion.Euler(0, doorCloseAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation2, smoot * Time.deltaTime);
         }
-        
     }
     public void Slide(){
         open = !open;

@@ -457,7 +457,7 @@ public class FirstPersonController : MonoBehaviour
             isGrounded = true;
         }
         else
-        {
+        { 
             isGrounded = false;
         }
     }
