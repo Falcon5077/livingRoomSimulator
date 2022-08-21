@@ -7,6 +7,8 @@ TagManager:
   - Clothes
   - WheelChair
   - Refrigerator
+  - Floor
+  - Computer
   layers:
   - Default
   - TransparentFX

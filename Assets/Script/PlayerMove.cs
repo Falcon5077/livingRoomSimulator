@@ -16,6 +16,8 @@ public class PlayerMove : MonoBehaviour
     private float vertical;
     private float horizontal;
     private Rigidbody rb;
+    public float maxVelocityChange = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(transform.parent == null)
+        if (transform.parent == null)
             KeyboardMove();
 
         if (Input.GetMouseButton(1))
@@ -60,20 +62,24 @@ public class PlayerMove : MonoBehaviour
         // 카메라 회전량을 카메라에 반영(X, Y축만 회전)
         transform.eulerAngles = new Vector3(0, yRotate2, 0);
         Cam.transform.eulerAngles = new Vector3(xRotate, yRotate2, 0);
-    }
+    }    
 
     void KeyboardMove()
     {
-        
         // WASD 키 또는 화살표키의 이동량을 측정
-        Vector3 dir = new Vector3(
-            Input.GetAxis("Horizontal"), 
-            0,
-            Input.GetAxis("Vertical")
-        );
+        Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        targetVelocity = transform.TransformDirection(targetVelocity) * moveSpeed;
 
-        transform.Translate(dir * moveSpeed * Time.deltaTime);     
-        
+        //transform.Translate(targetVelocity * moveSpeed * Time.deltaTime);
+
+        // Apply a force that attempts to reach our target velocity
+        Vector3 velocity = rb.velocity;
+        Vector3 velocityChange = (targetVelocity - velocity);
+        velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+        velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+        velocityChange.y = 0;
+
+        rb.AddForce(velocityChange, ForceMode.VelocityChange);
 
         /*
         vertical = Input.GetAxis("Vertical");

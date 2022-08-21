@@ -9,6 +9,7 @@ public class MoveObject : MonoBehaviour
     private GameObject Player;
     public bool isGrab = false;
     public bool canDrop = true;
+    public float Y_value = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +18,17 @@ public class MoveObject : MonoBehaviour
         Cursor.visible = false;
 
         Player = GameObject.FindWithTag("Player");
+        Y_value = transform.position.y;
     }
  //the layers the ray can hit
     void Awake() {
         rend = GetComponent<Renderer>();
     }
     private void Update() {
+        Vector3 currentPos = transform.parent.position;
+        currentPos.y = Y_value;
+        transform.parent.position = currentPos;
+
         if(Input.GetKeyDown(KeyCode.Q))
         {
             if(canDrop){
@@ -67,14 +73,14 @@ public class MoveObject : MonoBehaviour
         GetComponent<ChangeMaterial>().UpdateMaterial(isAlpha);
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player" || (this.tag != "Untagged" && other.tag == this.tag))
+        if (other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
             return;
         canDrop = false;
 
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" || (this.tag != "Untagged" && other.tag == this.tag))
+        if (other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
             return;
         canDrop = false;
     }
