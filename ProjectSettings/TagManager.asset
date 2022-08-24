@@ -9,6 +9,7 @@ TagManager:
   - Refrigerator
   - Floor
   - Computer
+  - socks
   layers:
   - Default
   - TransparentFX

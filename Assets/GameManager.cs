@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         else
         {
             GetComponent<CapsuleCollider>().isTrigger = false;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;// | RigidbodyConstraints.FreezePositionY;
         }
     }
 }
