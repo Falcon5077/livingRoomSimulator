@@ -6,22 +6,23 @@ public class PlayerMove : MonoBehaviour
 {
     [HideInInspector]
     public bool isMove = false;
-
     public float moveSpeed = 10.0f;
     public float turnSpeed = 2.5f;
-
     private float xRotate = 0.0f;
     private GameObject Cam;
-
     private float vertical;
     private float horizontal;
     private Rigidbody rb;
     public float maxVelocityChange = 10f;
-
+    public static bool canMove = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        //마우스 커서가 보이지 않게 함        
+        Cursor.lockState = CursorLockMode.Locked;
+        //마우스 커서를 고정시킴
         Cam = Camera.main.gameObject;
         rb = gameObject.GetComponent<Rigidbody>();
     }
@@ -32,7 +33,7 @@ public class PlayerMove : MonoBehaviour
         if (transform.parent == null)
             KeyboardMove();
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) || !canMove)
             return;
 
         MouseRotation();

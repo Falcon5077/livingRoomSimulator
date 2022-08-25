@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class MainDoor : MonoBehaviour
 {
-    public bool open = false;
+    public static bool open = false;
     public float doorOpenAngle = -90f;
     public float doorCloseAngle = 0f;
     public float smoot = 2f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +33,7 @@ public class MainDoor : MonoBehaviour
 
     IEnumerator WaitForIt()
     {
-        yield return new WaitForSeconds(3.5f);
-        open = !open;
+        yield return new WaitForSeconds(0.5f);
+        UIController.UI.UIOn();
     }
 }
