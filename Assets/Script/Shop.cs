@@ -19,9 +19,17 @@ public class Shop : MonoBehaviour
     public void showShop()
     {
         shopUI.SetActive(true);
+        PlayerMove.canMove = false;
+
+        Cursor.visible = true; //마우스 커서가 보이지 않게 함        
+        Cursor.lockState = CursorLockMode.None; //마우스 커서를 고정시킴
     }
     public void closeShop()
     {
         shopUI.SetActive(false);
+        PlayerMove.canMove = true;
+
+        Cursor.visible = false; //마우스 커서가 보이지 않게 함        
+        Cursor.lockState = CursorLockMode.Locked; //마우스 커서를 고정시킴
     }
 }

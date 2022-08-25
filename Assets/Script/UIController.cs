@@ -12,12 +12,6 @@ public class UIController : MonoBehaviour
         UI = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UIOn()
     {
         PlayerMove.canMove = false;

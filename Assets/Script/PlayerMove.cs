@@ -30,10 +30,13 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!canMove)
+            return;
+
         if (transform.parent == null)
             KeyboardMove();
 
-        if (Input.GetMouseButton(1) || !canMove)
+        if (Input.GetMouseButton(1))
             return;
 
         MouseRotation();
