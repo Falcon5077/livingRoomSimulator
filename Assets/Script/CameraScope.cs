@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CameraScope : MonoBehaviour
 {
-    private GameObject hitObject;
+    public static GameObject hitObject;
     public GameObject UIButton;
     private void Update()
     {
+        //Debug.Log(hitObject);
+
         if (Input.GetKeyDown(KeyCode.F))
         {
             PlayObject();

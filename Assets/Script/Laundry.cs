@@ -17,6 +17,9 @@ public class Laundry : MonoBehaviour
         if(!isLaundry){
             GetComponent<MeshRenderer>().enabled = false;
             transform.parent.position = new Vector3(-50,1,-5);
+            transform.localPosition = new Vector3(0,0,0);
+            transform.localRotation = Quaternion.Euler(Vector3.zero);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             isLaundry = true;
         }
         else
