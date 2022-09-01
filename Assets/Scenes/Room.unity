@@ -6731,8 +6731,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af427aaa9163c14299681b109b7261c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opaqueMat: {fileID: 0}
-  transparentMat: {fileID: 0}
+  opaqueMat: {fileID: 2100000, guid: dea48cbc9e2a35044ac139ab8ad0ed26, type: 2}
+  transparentMat: {fileID: 2100000, guid: bff2a06adeaed3b4f8fa2c44d31bfbeb, type: 2}
   offset: 10
   childObject: []
   childCount: 0
@@ -11742,8 +11742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af427aaa9163c14299681b109b7261c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opaqueMat: {fileID: 0}
-  transparentMat: {fileID: 0}
+  opaqueMat: {fileID: 2100000, guid: dea48cbc9e2a35044ac139ab8ad0ed26, type: 2}
+  transparentMat: {fileID: 2100000, guid: bff2a06adeaed3b4f8fa2c44d31bfbeb, type: 2}
   offset: 10
   childObject: []
   childCount: 0
