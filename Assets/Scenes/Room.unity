@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.52303267, g: 0.5684718, b: 0.5725476, a: 1}
+  m_IndirectSpecularColor: {r: 0.52271307, g: 0.5682998, b: 0.5724369, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6534,8 +6534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af427aaa9163c14299681b109b7261c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opaqueMat: {fileID: 0}
-  transparentMat: {fileID: 0}
+  opaqueMat: {fileID: -8469494145858465668, guid: 4416c1daa8b8a524f81258ccfb44d4ad, type: 3}
+  transparentMat: {fileID: 2100000, guid: 4cde117086e9f46d2abc3e16ce71ce0e, type: 2}
   offset: 10
   childObject: []
   childCount: 0
@@ -11606,8 +11606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af427aaa9163c14299681b109b7261c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opaqueMat: {fileID: 0}
-  transparentMat: {fileID: 0}
+  opaqueMat: {fileID: -8469494145858465668, guid: 66cd0e0732819b049a0c9efbfde2f492, type: 3}
+  transparentMat: {fileID: 2100000, guid: bff2a06adeaed3b4f8fa2c44d31bfbeb, type: 2}
   offset: 10
   childObject: []
   childCount: 0
