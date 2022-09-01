@@ -31,7 +31,11 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         if (!canMove)
+        {
+            rb.velocity = Vector3.zero;
             return;
+        }
+            
 
         if (transform.parent == null)
             KeyboardMove();
