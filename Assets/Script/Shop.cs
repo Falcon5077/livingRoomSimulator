@@ -12,24 +12,24 @@ public class Shop : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        MoneyCalc.instance.totalMoney += 5;
     }
     public void showShop()
     {
         shopUI.SetActive(true);
         PlayerMove.canMove = false;
 
-        Cursor.visible = true; //¸¶¿ì½º Ä¿¼­°¡ º¸ÀÌÁö ¾Ê°Ô ÇÔ        
-        Cursor.lockState = CursorLockMode.None; //¸¶¿ì½º Ä¿¼­¸¦ °íÁ¤½ÃÅ´
+        Cursor.visible = true; //ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½        
+        Cursor.lockState = CursorLockMode.None; //ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´
     }
     public void closeShop()
     {
         shopUI.SetActive(false);
         PlayerMove.canMove = true;
 
-        Cursor.visible = false; //¸¶¿ì½º Ä¿¼­°¡ º¸ÀÌÁö ¾Ê°Ô ÇÔ        
-        Cursor.lockState = CursorLockMode.Locked; //¸¶¿ì½º Ä¿¼­¸¦ °íÁ¤½ÃÅ´
+        Cursor.visible = false; //ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½        
+        Cursor.lockState = CursorLockMode.Locked; //ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´
     }
 }
