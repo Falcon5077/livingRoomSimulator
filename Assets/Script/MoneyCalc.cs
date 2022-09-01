@@ -15,7 +15,6 @@ public class MoneyCalc : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        totalMoney += 5;
         GetComponent<TextMeshProUGUI>().text = "Money : " + string.Format("{0:0,0}", totalMoney);
     }
 
