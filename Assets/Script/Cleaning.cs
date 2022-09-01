@@ -25,6 +25,10 @@ public class Cleaning : MonoBehaviour
         cloth.GetComponent<Laundry>().isLaundry = false;
         cloth.GetComponent<MeshRenderer>().enabled = true;
         cloth.transform.parent.position = transform.position;
+        cloth.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        cloth.transform.localPosition = Vector3.zero;
+        cloth.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        cloth.GetComponent<Rigidbody>().AddRelativeForce(transform.up * 30f,ForceMode.Impulse);
     }
     // Update is called once per frame
     void Update()

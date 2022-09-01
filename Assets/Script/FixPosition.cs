@@ -19,10 +19,20 @@ public class FixPosition : MonoBehaviour
             Player.transform.parent = this.transform;
 
         Player.transform.localPosition = mPosition;
-        Player.transform.rotation = Quaternion.Euler(mRotationEuler);
+        Player.transform.localRotation = Quaternion.Euler(mRotationEuler);
+
+        if(CameraScope.hitObject == GameObject.FindWithTag("Bed")){
+            GameManager.isLay = true;          
+
+
+            Camera.main.transform.localPosition = new Vector3(0, -5, 0);
+            Camera.main.transform.localRotation = Quaternion.Euler(new Vector3(-15, 0, 0));
+            GameManager.instance.FadeOut();
+        }
 
         if (Player.transform.parent == this.transform)
             Player.transform.parent = null;
+            
     }
 
     void Update()

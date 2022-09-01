@@ -20,6 +20,7 @@ public class RotationChair : MonoBehaviour
     {
         float r = f % 90;
         return (r < 45) ? f - r : f - r + 90;
+        
     }
 
     IEnumerator Typhoon()
