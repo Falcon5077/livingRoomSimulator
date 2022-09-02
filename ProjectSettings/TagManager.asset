@@ -11,6 +11,8 @@ TagManager:
   - Computer
   - socks
   - keycaps
+  - Bed
+  - RoomCleaner
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,14 @@ public class MagicCleaner : MonoBehaviour
     public GameObject Target;
     public bool isRota = true;
     public float rotaSpeed = 10f;
-    public RoomCleaner roomCleaner;
+    public GameObject roomCleaner;
 
     public void FlyCleaner()
     {
+        roomCleaner.SetActive(true);
         isRota = true;
-        roomCleaner.isCleaning = true;
-        StartCoroutine(roomCleaner.rota());
+        roomCleaner.GetComponent<RoomCleaner>().isCleaning = true;
+        StartCoroutine(roomCleaner.GetComponent<RoomCleaner>().rota());
         StartCoroutine("Magic");
         StartCoroutine("rota");
     }
@@ -117,6 +118,8 @@ public class MagicCleaner : MonoBehaviour
         transform.parent.position = Gotoposition;
 
         isRota = false;
-        roomCleaner.isCleaning = false;
+        roomCleaner.GetComponent<RoomCleaner>().isCleaning = false;
+
+        roomCleaner.SetActive(false);
     }
 }
