@@ -73,14 +73,14 @@ public class MoveObject : MonoBehaviour
         GetComponent<ChangeMaterial>().UpdateMaterial(isAlpha);
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
+        if (other.tag == "keycaps" || other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
             return;
         canDrop = false;
 
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
+        if (other.tag == "keycaps" || other.tag == "Player" || other.tag == "Floor" || (this.tag != "Untagged" && other.tag == this.tag))
             return;
         canDrop = false;
     }

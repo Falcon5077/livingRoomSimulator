@@ -36,7 +36,7 @@ public class MagicCleaner : MonoBehaviour
         Quaternion firstParentRot = transform.parent.rotation;
 
         float elapsedTime = 0f;
-        float waitTime = 1f;
+        float waitTime = 0.9f;
         Vector3 currentPos = transform.parent.position;
         Vector3 Gotoposition = currentPos;
         Gotoposition.y = 3f;
@@ -121,5 +121,6 @@ public class MagicCleaner : MonoBehaviour
         roomCleaner.GetComponent<RoomCleaner>().isCleaning = false;
 
         roomCleaner.SetActive(false);
+        GetComponent<MoveObject>().canDrop = true;
     }
 }

@@ -7,6 +7,7 @@ public class FixPosition : MonoBehaviour
     public Vector3 mPosition;
     public Vector3 mRotationEuler;
     public GameObject Player;
+    public Vector3 lastPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,8 @@ public class FixPosition : MonoBehaviour
 
     public void SetPlayerPosition()
     {
+        lastPosition = Player.transform.localPosition;
+        
         if (Player.transform.parent == null)
             Player.transform.parent = this.transform;
 

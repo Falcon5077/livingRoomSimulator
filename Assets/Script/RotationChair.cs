@@ -41,5 +41,6 @@ public class RotationChair : MonoBehaviour
         }
 
         Player.transform.parent = null;
+        Player.transform.position = new Vector3(transform.position.x,10,transform.position.z) + (transform.right * 5);
     }
 }

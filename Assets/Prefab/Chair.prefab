@@ -26,12 +26,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3949284234267859705}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1500001, z: 0}
   m_LocalScale: {x: 1.1679, y: 1.1679, z: 1.1679}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4614138319927064730}
+  m_Father: {fileID: 5222067152348560607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6966977587455864968
@@ -129,7 +129,7 @@ Transform:
   m_Children:
   - {fileID: 4614138320173501831}
   m_Father: {fileID: 4614138319927064730}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5152697586862720966
 BoxCollider:
@@ -172,7 +172,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5222067152622193090}
   - {fileID: 5152697586862720961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -266,8 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
-  isRight: 0
-  isUp: 0
   FunctionName: Tornado
 --- !u!114 &1473964433
 MonoBehaviour:
@@ -283,8 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mPosition: {x: 0, y: 8, z: 0}
   mRotationEuler: {x: 0, y: -90, z: 0}
-  camRotationEuler: {x: 0, y: 0, z: 0}
   Player: {fileID: 0}
+  lastPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1473964434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,5 +300,10 @@ MonoBehaviour:
 --- !u!4 &4614138320173501831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3bf5854be30a72543abab900cca527be, type: 3}
+  m_PrefabInstance: {fileID: 5152697586004060780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5222067152348560607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1151388028547126963, guid: 3bf5854be30a72543abab900cca527be, type: 3}
   m_PrefabInstance: {fileID: 5152697586004060780}
   m_PrefabAsset: {fileID: 0}
